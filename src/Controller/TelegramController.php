@@ -18,10 +18,10 @@ class TelegramController extends AbstractController
     public function index(): JsonResponse
     {
 
-
+       // dd(__DIR__ . '/../../.env');
         $dotenv = new Dotenv();
-        $dotenv->load(__DIR__ . '/../.env');
-        $dotenv->overload(__DIR__ . '/../.env');
+        $dotenv->load(__DIR__ . '/../../.env');
+        $dotenv->overload(__DIR__ . '/../../.env');
 
         $config = [
             "telegram" => [
@@ -36,7 +36,7 @@ class TelegramController extends AbstractController
         DriverManager::loadDriver(\BotMan\Drivers\Telegram\TelegramAudioDriver::class);
         DriverManager::loadDriver(\BotMan\Drivers\Telegram\TelegramContactDriver::class);
         DriverManager::loadDriver(\BotMan\Drivers\Telegram\TelegramVideoDriver::class);
-        $botman = BotManFactory::create($config, new RedisCache('redis', 6379));
+        $botman = BotManFactory::create($config, null);
 
         $botman->hears('/start', function (BotMan $bot) {
             $bot->reply('Commands:');
