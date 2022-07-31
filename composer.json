@@ -10,6 +10,7 @@
         "botman/botman": "^2.7",
         "botman/driver-telegram": "^2.0",
         "doctrine/annotations": "^1.13",
+        "symfony/apache-pack": "^1.0",
         "symfony/console": "5.4.*",
         "symfony/dotenv": "5.4.*",
         "symfony/flex": "^1.17|^2",
