@@ -44,28 +44,6 @@ services:
           - ".:/var/www/app/"
       networks:
           - local
-    postgres:
-      env_file:
-        - .env
-      image: postgres:13.2
-      restart: on-failure
-      environment:
-          POSTGRES_USER: ${POSTGRES_USER}
-          POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-          POSTGRES_DB: ${POSTGRES_DB}
-      volumes:
-          - "dbdata:/var/lib/postgresql/data"
-      networks:
-          - local
-    adminer:
-      image: adminer:4.8.1
-      restart: always
-      environment:
-          ADMINER_DESIGN: nette
-      ports:
-          - 8084:8080
-      networks:
-          - local
 
 networks:
     local:
