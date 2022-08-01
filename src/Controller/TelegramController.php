@@ -14,17 +14,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TelegramController extends AbstractController
 {
-    #[Route('/hi', name: 'app_hi')]
-    public function hi()
-    {
-        dd('Hi');
-    }
-
     #[Route('/telegram', name: 'app_telegram')]
     public function index(): JsonResponse
     {
 
-       // dd(__DIR__ . '/../../.env');
         $dotenv = new Dotenv();
         $dotenv->load(__DIR__ . '/../../.env');
         $dotenv->overload(__DIR__ . '/../../.env');
